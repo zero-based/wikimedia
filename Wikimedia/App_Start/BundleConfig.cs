@@ -22,6 +22,7 @@ namespace Wikimedia
             // Styles
             bundles.Add(new StyleBundle("~/Content/bootstrap", "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"));
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/Site.css"));
+            bundles.Add(new StyleBundle("~/Content/font-awesome", "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"));
         }
     }
 }
