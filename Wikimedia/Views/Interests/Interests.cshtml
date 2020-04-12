@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Wikimedia.Models.Interest>
+@{
+    ViewBag.Title = "Interests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tune your home feed</h2>
+<div class="row align-items-center">
+    <div class="col-md-auto">
+        The Topics in your home feed are based on your interests. Edit your preferences to change things up!
+    </div>
+    <div class="col">
+        <button type="button" class="btn btn-primary m-1">Done tuning</button>
+    </div>
+</div>
+<hr />
+
+@{
+    foreach (var interest in @Model)
+    {
+        <button type="button" class="btn btn-primary m-1">@interest.Name</button>
+    }
+}
