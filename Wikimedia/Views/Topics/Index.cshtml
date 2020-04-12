@@ -10,7 +10,10 @@
         <p class="text-monospace">
             <i class="fas fa-edit"></i>
             <i class="fas fa-share"></i>
-            <i class="fas fa-history"></i> |
+            <a class="text-dark text-decoration-none"
+               href=@Url.Action("Index", "Commits")>
+                <i class="fas fa-history"></i>
+            </a>
             <i class="fas fa-arrow-circle-up"></i> @Model.UpVotes
             <i class="fas fa-arrow-circle-down"></i> @Model.DownVotes
         </p>
