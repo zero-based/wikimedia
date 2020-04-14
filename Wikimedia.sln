@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wikimedia", "Wikimedia\Wiki
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wikimedia.Tests", "Wikimedia.Tests\Wikimedia.Tests.csproj", "{031EC372-D13E-4867-A6C2-14FEC3F53D04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{838216B8-B6EC-4F3A-B1FE-031D9E009338}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{031EC372-D13E-4867-A6C2-14FEC3F53D04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{031EC372-D13E-4867-A6C2-14FEC3F53D04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{031EC372-D13E-4867-A6C2-14FEC3F53D04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{838216B8-B6EC-4F3A-B1FE-031D9E009338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{838216B8-B6EC-4F3A-B1FE-031D9E009338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{838216B8-B6EC-4F3A-B1FE-031D9E009338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{838216B8-B6EC-4F3A-B1FE-031D9E009338}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
