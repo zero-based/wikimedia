@@ -11,7 +11,7 @@ elseif ($is_existing) {
 }
 else {
     Write-Host("Building Contianer") -foregroundcolor green
-    docker-compose --project-directory .. run -d --service-ports --name $container_name db
+    docker-compose run -d --service-ports --name $container_name db
 }
 
 $interval = 5
