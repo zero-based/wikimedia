@@ -1,4 +1,4 @@
-﻿namespace Wikimedia.Models
+﻿namespace Core.Models
 {
     public class Interest
     {

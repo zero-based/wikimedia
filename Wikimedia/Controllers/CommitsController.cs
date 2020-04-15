@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using Wikimedia.Models;
+using Core.Models;
 
 namespace Wikimedia.Controllers
 {

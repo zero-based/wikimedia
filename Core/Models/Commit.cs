@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Wikimedia.Models
+namespace Core.Models
 {
     public class Commit
     {
