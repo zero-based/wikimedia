@@ -17,6 +17,7 @@
                     </div>
                     @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = Html.DisplayNameFor(n => n.Username) })
                 </div>
+                @Html.ValidationMessageFor(m => m.Username)
             </div>
             <div class="form-group">
                 <div class="input-group">
@@ -25,6 +26,7 @@
                     </div>
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Html.DisplayNameFor(n => n.Email) })
                 </div>
+                @Html.ValidationMessageFor(m => m.Email)
             </div>
             <div class="form-group">
                 <div class="input-group">
@@ -33,25 +35,24 @@
                     </div>
                     @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = Html.DisplayNameFor(n => n.Password) })
                 </div>
+                @Html.ValidationMessageFor(m => m.Password)
             </div>
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-lock"></i></span>
                     </div>
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Confirm Password" })
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
                 </div>
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
+            <div class="form-group">
+                <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg"> Sign Up </button>
             </div>
         }
-        <div class="form-group">
-            <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg"
-                    OnClick="location.href='@Url.Action("SignUp")'">
-                Sign Up
-            </button>
-        </div>
         <div class="text-center">Already have an account? <a href="@Url.Action("Index", "SignIn")">Login here</a></div>
     </div>
 </div>

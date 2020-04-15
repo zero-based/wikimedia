@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Wikimedia.Models;
 
 namespace Wikimedia.Controllers
 {
@@ -9,10 +10,13 @@ namespace Wikimedia.Controllers
             return View();
         }
 
-        public ActionResult SignIn()
+        [HttpPost]
+        public ActionResult SignIn(UserAccount userAccount)
         {
+            if (!ModelState.IsValid)
+                return View("Index", userAccount);
             return Content("Sign In Done !");
         }
-        
+
     }
 }
