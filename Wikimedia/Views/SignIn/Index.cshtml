@@ -16,6 +16,7 @@
                     </div>
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Html.DisplayNameFor(n => n.Email) })
                 </div>
+                @Html.ValidationMessageFor(m => m.Email)
             </div>
             <div class="form-group">
                 <div class="input-group">
@@ -24,15 +25,13 @@
                     </div>
                     @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = Html.DisplayNameFor(n => n.Password) })
                 </div>
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg"> Sign In </button>
             </div>
         }
 
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg"
-                    OnClick="location.href='@Url.Action("SignIn")'">
-                Sign In
-            </button>
-        </div>
         <p><a href="#">Forgot Password?</a></p>
         <div class="modal-footer">Don't have an account? <a href="@Url.Action("Index", "SignUp")">Create one</a></div>
     </div>

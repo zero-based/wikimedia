@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Wikimedia.Models;
 
 namespace Wikimedia.Controllers
 {
@@ -9,9 +10,12 @@ namespace Wikimedia.Controllers
             return View();
         }
 
-        public ActionResult SignUp()
+        [HttpPost]
+        public ActionResult SignUp(UserAccount userAccount)
         {
-            return Content("Sign up done !");
+            if (!ModelState.IsValid)
+                return View("Index", userAccount);
+            return Content("Sign Up Done !");
         }
 
     }
