@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
-using Wikimedia.Models;
+using Core.Models;
 
-namespace Wikimedia.Controllers
+namespace Web.Controllers
 {
     public class SignUpController : Controller
     {

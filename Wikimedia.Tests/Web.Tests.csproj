@@ -9,8 +9,8 @@
     <ProjectGuid>{031EC372-D13E-4867-A6C2-14FEC3F53D04}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Wikimedia.Tests</RootNamespace>
-    <AssemblyName>Wikimedia.Tests</AssemblyName>
+    <RootNamespace>Web.Tests</RootNamespace>
+    <AssemblyName>Web.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -99,9 +99,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Wikimedia\Wikimedia.csproj">
+    <ProjectReference Include="..\Wikimedia\web.csproj">
       <Project>{522E31F9-4560-4FFB-A4A6-184955034D56}</Project>
-      <Name>Wikimedia</Name>
+      <Name>web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
