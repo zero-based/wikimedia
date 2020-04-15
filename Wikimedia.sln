@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wikimedia", "Wikimedia\Wikimedia.csproj", "{522E31F9-4560-4FFB-A4A6-184955034D56}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web", "Wikimedia\web.csproj", "{522E31F9-4560-4FFB-A4A6-184955034D56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wikimedia.Tests", "Wikimedia.Tests\Wikimedia.Tests.csproj", "{031EC372-D13E-4867-A6C2-14FEC3F53D04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Tests", "Web.Tests\Web.Tests.csproj", "{031EC372-D13E-4867-A6C2-14FEC3F53D04}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{838216B8-B6EC-4F3A-B1FE-031D9E009338}"
 EndProject

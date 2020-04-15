@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using MarkdownDeep;
 
-namespace DanTup.Web
+namespace Web.Helpers
 {
 	/// <summary>
 	/// Helper class for transforming Markdown.

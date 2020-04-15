@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Wikimedia;
-using Wikimedia.Controllers;
+using Web.Controllers;
 
-namespace Wikimedia.Tests.Controllers
+namespace Web.Tests.Controllers
 {
     [TestClass]
     public class HomeControllerTest

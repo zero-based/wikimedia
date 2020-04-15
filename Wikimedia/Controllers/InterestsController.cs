@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Core.Models;
+using Infrastructure;
 
-namespace Wikimedia.Controllers
+namespace Web.Controllers
 {
     public class InterestsController : Controller
     {
@@ -18,7 +19,7 @@ namespace Wikimedia.Controllers
                 new Interest {Id = 5, Name = "Interest 5"}
             };
 
-            return View(interests);
+            return View(new Demo().GetAll());
         }
     }
 }
