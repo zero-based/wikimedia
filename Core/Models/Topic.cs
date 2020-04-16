@@ -1,4 +1,6 @@
-﻿namespace Core.Models
+﻿using Core.Interfaces;
+
+namespace Core.Models
 {
     public class Topic : IVotable
     {

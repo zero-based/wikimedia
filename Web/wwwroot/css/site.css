@@ -1,0 +1,20 @@
+﻿body {
+    min-height: 100vh;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid red;
+}
+
+.topic:hover {
+    box-shadow: 5px 5px 1px 3px rgba(0,0,0,0.15);
+    text-decoration: none;
+}

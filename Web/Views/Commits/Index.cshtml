@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Core.Models.Commit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<ul class="list-group">
+    @foreach (var commit in Model)
+    {
+        <li class="list-group-item list-group-item-action">
+            <header>
+                <a class="text-dark" href="#">
+                    @commit.Message
+                </a>
+            </header>
+            <a class="text-dark" href="#">
+                <b>@commit.Author.Username</b>
+            </a>
+            <small> Committed on @commit.Date</small>
+        </li>
+    }
+</ul>
