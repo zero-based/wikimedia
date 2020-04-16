@@ -1,0 +1,21 @@
+﻿@using Westwind.AspNetCore.Markdown
+@model IEnumerable<Core.Models.Topic>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="card-deck">
+    @foreach (var topic in Model)
+    {
+        <a class="card border-primary mb-4 topic" style="min-width:300px; max-width:300px;" href="@Url.Action(topic.Name, "Topics")">
+            <div class="card-body">
+                <h5 class="card-title text-primary"> @topic.Name</h5>
+                <p class="card-text text-muted">
+                    @Markdown.ParseHtmlString(topic.Body.Length > 100 ? topic.Body.Substring(0, 100) : topic.Body)
+                </p>
+            </div>
+            <div class="card-footer bg-transparent"> @topic.Creator.Username</div>
+        </a>
+    }
+</div>
