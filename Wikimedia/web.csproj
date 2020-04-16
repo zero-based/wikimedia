@@ -157,9 +157,10 @@
     <None Include="packages.config" />
     <Content Include="Views\SignIn\Index.cshtml" />
     <Content Include="Views\SignUp\Index.cshtml" />
-    <Content Include="Views\Topics\Index.cshtml" />
+    <Content Include="Views\Topics\TopicByName.cshtml" />
     <Content Include="Views\Commits\Index.cshtml" />
     <Content Include="Views\Interests\Interests.cshtml" />
+    <Content Include="Views\Topics\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">
