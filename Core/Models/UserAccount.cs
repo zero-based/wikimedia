@@ -8,6 +8,12 @@ namespace Core.Models
     {
         [Required]
         [StringLength(16)]
+        public string FirstName { get; set; }
+        [Required]
+        [StringLength(16)]
+        public string LastName { get; set; }
+        [Required]
+        [StringLength(16)]
         public string Username { get; set; }
         [Required]
         [EmailAddress]
