@@ -7,7 +7,7 @@
     <div class="col-lg-4">
         <h2>Sign In</h2>
         <hr>
-        @using (Html.BeginForm("SignIn", "SignIn"))
+        @using (Html.BeginForm("SignInSubmit", "Auth"))
         {
             <div class="form-group">
                 <div class="input-group">
@@ -33,7 +33,7 @@
         }
 
         <p><a href="#">Forgot Password?</a></p>
-        <div class="modal-footer">Don't have an account? <a href="@Url.Action("Index", "SignUp")">Create one</a></div>
+        <div class="modal-footer">Don't have an account? <a href="@Url.Action("SignUp", "Auth")">Create one</a></div>
     </div>
 </div>
 

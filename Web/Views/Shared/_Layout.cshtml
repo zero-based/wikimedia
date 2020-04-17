@@ -34,10 +34,12 @@
                     @Html.ActionLink("About", "About", "Home", null, new { @class = "nav-item nav-link" })
                     @Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-item nav-link" })
                 </ul>
+
                 <ul class="nav navbar-nav pull-right">
-                    @Html.ActionLink("Sign In", "Index", "SignIn", null, new {@class = "nav-item nav-link"})
-                    @Html.ActionLink("Sign Up", "Index", "SignUp", null, new {@class = "nav-item nav-link"})
+                    @Html.ActionLink("Sign In", "SignIn", "Auth", null, new { @class = "nav-item nav-link" })
+                    @Html.ActionLink("Sign Up", "SignUp", "Auth", null, new { @class = "nav-item nav-link" })
                 </ul>
+
             </div>
         </div>
     </nav>
