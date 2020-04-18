@@ -72,5 +72,63 @@ namespace Infrastructure.Repositories
         {
             throw new System.NotImplementedException();
         }
+
+        public List<Interest> GetInterests(string username)
+        {
+            var userInterests = new List<Interest>();
+            var command = new OracleCommand
+            {
+                Connection = InfraConfig.Connection,
+                CommandText = "SELECT InterestId, Name FROM Interest i, UserInterest ui WHERE i.id = ui.InterestId AND ui.Username = :username"
+            };
+            command.Parameters.Add("username", username);
+
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    userInterests.Add(new Interest
+                    {
+                        Id = int.Parse(reader["InterestId"].ToString()),
+                        Name = reader["Name"].ToString()
+                    });
+                }
+            }
+
+            return userInterests;
+        }
+
+        public void InsertUserInterest(int id, string username)
+        {
+            var command = new OracleCommand
+            {
+                Connection = InfraConfig.Connection,
+                CommandText = "INSERT INTO UserInterest (Username, InterestId) values (:username, :id)"
+            };
+            command.Parameters.Add("username", username);
+            command.Parameters.Add("id", id);
+            command.ExecuteNonQuery();
+        }
+
+        public void DeleteUserInterests(string username)
+        {
+            var command = new OracleCommand
+            {
+                Connection = InfraConfig.Connection,
+                CommandText = "DELETE FROM UserInterest WHERE Username = :username"
+            };
+            command.Parameters.Add("username", username);
+            command.ExecuteNonQuery();
+        }
+
+        public void UpdateUserInterests(List<Interest> interests, string username)
+        {
+            DeleteUserInterests(username);
+
+            foreach (var interest in interests)
+            {
+                InsertUserInterest(interest.Id, username);
+            }
+        }
     }
 }
