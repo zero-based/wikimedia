@@ -1,0 +1,28 @@
+﻿@model Core.Models.Topic
+
+@{
+    ViewData["Title"] = "New";
+}
+
+<br />
+
+@using (Html.BeginForm("Publish", "Topics"))
+{
+    <div class="col">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Topic Name</label>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Topic Body</label>
+            @Html.TextAreaFor(m => m.Body, new { @class = "form-control", @rows = "3", })
+        </div>
+
+        <div class="form-group fa-pull-right">
+            <button type="submit" class="btn btn-primary"> Publish </button>
+        </div>
+    </div>
+
+}
+
