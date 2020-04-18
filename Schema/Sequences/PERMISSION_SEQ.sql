@@ -1,0 +1,3 @@
+DROP SEQUENCE permission_seq;
+
+CREATE SEQUENCE permission_seq INCREMENT BY 1 MINVALUE 0;
