@@ -1,0 +1,7 @@
+DROP TABLE UserBadge CASCADE CONSTRAINTS;
+
+CREATE TABLE UserBadge (
+  Username VARCHAR2(50) NOT NULL,
+  BadgeName VARCHAR2(50) NOT NULL,
+  PRIMARY KEY (Username, BadgeName)
+);

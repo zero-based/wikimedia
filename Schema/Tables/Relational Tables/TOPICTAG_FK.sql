@@ -1,0 +1,3 @@
+ALTER TABLE TopicTag
+ADD  FOREIGN KEY (TopicName) REFERENCES Topic(Name)
+ADD  FOREIGN KEY (InterestId) REFERENCES Interest(Id);

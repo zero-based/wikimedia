@@ -18,7 +18,7 @@ $interval = 5
 $timeout = 200
 $user_name = "zerobased"
 $password = "zerobased"
-$sql_script_path = "/db/master.sql"
+$sql_script_path = "/Schema/Scripts/MASTER.sql"
 
 Write-Host "Waiting for Container" -NoNewLine -foregroundcolor green
 for ($i = 0; $i -le $timeout * $interval; $i++) {

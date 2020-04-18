@@ -1,29 +1,12 @@
-DELETE FROM
-    vote;
-
-DELETE FROM
-    topictag;
-
-DELETE FROM
-    Topic;
-
-DELETE FROM
-    UserInterest;
-
-DELETE FROM
-    interest;
-
-DELETE FROM
-    userbadge;
-
-DELETE FROM
-    badge;
-
-DELETE FROM
-    permission;
-
-DELETE FROM
-    useraccount;
+DELETE FROM Vote;
+DELETE FROM TopicTag;
+DELETE FROM Topic;
+DELETE FROM UserInterest;
+DELETE FROM Interest;
+DELETE FROM UserBadge;
+DELETE FROM Badge;
+DELETE FROM Permission;
+DELETE FROM UserAccount;
 
 COMMIT;
 

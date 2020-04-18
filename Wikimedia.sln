@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{8FC54FA4-B2C6-4B17-8653-D2F69C03E929}"
 EndProject
+Project("{218574D1-FF94-4B95-8577-A6D58C11C315}") = "Schema", "Schema\Schema.oradbproj", "{080568AC-D113-4D89-801F-995FCDFF310F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

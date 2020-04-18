@@ -1,0 +1,3 @@
+DROP SEQUENCE interest_seq;
+
+CREATE SEQUENCE interest_seq INCREMENT BY 1 MINVALUE 0;
