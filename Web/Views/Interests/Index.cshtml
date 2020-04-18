@@ -1,23 +1,29 @@
-﻿@model IEnumerable<Core.Models.Interest>
+﻿@model List<Web.ViewModels.InterestViewModel>
 @{
     ViewBag.Title = "Interests";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Tune your home feed</h2>
-<div class="row align-items-center">
-    <div class="col-md-auto">
-        The Topics in your home feed are based on your interests. Edit your preferences to change things up!
+@using (Html.BeginForm("Update", "Interests"))
+{
+    <div class="row align-items-center">
+        <div class="col-md-auto">
+            The Topics in your home feed are based on your interests. Edit your preferences to change things up!
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-primary m-1">Done tuning</button>
+        </div>
     </div>
-    <div class="col">
-        <button type="button" class="btn btn-primary m-1">Done tuning</button>
-    </div>
-</div>
-<hr />
+    <hr/>
 
-@{
-    foreach (var interest in @Model)
+    for (var i = 0; i < Model.Count; i++)
     {
-        <button type="button" class="btn btn-primary m-1">@interest.Name</button>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" asp-for="@Model[i].IsChecked"/>
+            <label class="custom-control-label" asp-for="@Model[i].IsChecked">@Model[i].Interest.Name</label>
+            <input type="hidden" asp-for="@Model[i].Interest.Id"/>
+            <input type="hidden" asp-for="@Model[i].Interest.Name"/>
+        </div>
     }
 }

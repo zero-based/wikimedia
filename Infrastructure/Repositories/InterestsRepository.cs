@@ -6,7 +6,7 @@ using System.Data;
 
 namespace Infrastructure.Repositories
 {
-    public class Demo : IRepository<Interest>
+    public class InterestsRepository : IRepository<Interest>
     {
         public void Create(Interest obj)
         {

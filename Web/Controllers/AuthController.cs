@@ -45,7 +45,7 @@ namespace Web.Controllers
             userAccount.Password = Security.ToHash(userAccount.Password);
             userAccountRepository.Create(userAccount);
             LoggedInUser = userAccount;
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Interests");
         }
 
     }
