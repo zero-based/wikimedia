@@ -19,32 +19,35 @@
       ]
     },
     {
-      "provider": "cdnjs",
-      "library": "font-awesome@5.13.0",
-      "destination": "wwwroot/lib/font-awesome/",
-      "files": [
-        "css/all.css",
-        "css/all.min.css"
-      ]
-    },
-    {
-      "provider": "cdnjs",
       "library": "popper.js@1.16.0",
       "destination": "wwwroot/lib/popper.js/",
       "files": [
         "umd/popper.js",
-        "umd/popper.min.js"
+        "umd/popper.min.js",
+        "umd/popper.js.map"
       ]
     },
     {
-      "provider": "cdnjs",
       "library": "twitter-bootstrap@4.4.1",
       "destination": "wwwroot/lib/bootstrap/",
       "files": [
         "js/bootstrap.js",
         "js/bootstrap.min.js",
+        "js/bootstrap.js.map",
         "css/bootstrap.css",
-        "css/bootstrap.min.css"
+        "css/bootstrap.min.css",
+        "css/bootstrap.css.map"
+      ]
+    },
+    {
+      "library": "font-awesome@5.13.0",
+      "destination": "wwwroot/lib/font-awesome/",
+      "files": [
+        "css/all.css",
+        "css/all.min.css",
+        "webfonts/fa-brands-400.woff2",
+        "webfonts/fa-regular-400.woff2",
+        "webfonts/fa-solid-900.woff2"
       ]
     }
   ]
