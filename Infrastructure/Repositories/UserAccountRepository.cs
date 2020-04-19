@@ -21,7 +21,7 @@ namespace Infrastructure.Repositories
             command.Parameters.Add("LastName", userAccount.LastName);
             command.Parameters.Add("Password", userAccount.Password);
             command.Parameters.Add("JoinDate", DateTime.Now);
-            command.Parameters.Add("Points", "0");
+            command.Parameters.Add("Points", userAccount.Points);
             command.Parameters.Add("Email", userAccount.Email);
 
             command.ExecuteNonQuery();
@@ -30,7 +30,7 @@ namespace Infrastructure.Repositories
 
         public UserAccount Get(string userAccountEmail)
         {
-            UserAccount userAccount = new UserAccount();
+            var userAccount = new UserAccount();
             var command = new OracleCommand
             {
                 Connection = InfraConfig.Connection,
@@ -61,6 +61,23 @@ namespace Infrastructure.Repositories
         public IEnumerable<UserAccount> GetAll()
         {
             throw new System.NotImplementedException();
+        }
+
+        public void Update(UserAccount userAccount)
+        {
+            var command = new OracleCommand
+            {
+                Connection = InfraConfig.Connection,
+                CommandText = @"Update UserAccount SET FirstName =: FirstName, LastName =: LastName, Email =: Email, Password =: Password WHERE Username =: Username"
+            };
+            
+            command.Parameters.Add("FirstName", userAccount.FirstName);
+            command.Parameters.Add("LastName", userAccount.LastName);
+            command.Parameters.Add("Email", userAccount.Email);
+            command.Parameters.Add("Password", userAccount.Password);
+            command.Parameters.Add("Username", userAccount.Username);
+
+            command.ExecuteNonQuery();
         }
 
         public void Update(string id)
