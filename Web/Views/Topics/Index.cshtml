@@ -12,10 +12,18 @@
             <div class="card-body">
                 <h5 class="card-title text-primary"> @topic.Name</h5>
                 <p class="card-text text-muted">
+                    @if (topic.Body == null)
+                    {
+                    <p> This is null Dude </p>
+                }
+                else
+                {
                     @Markdown.ParseHtmlString(topic.Body.Length > 100 ? topic.Body.Substring(0, 100) : topic.Body)
-                </p>
-            </div>
-            <div class="card-footer bg-transparent"> @topic.Creator.Username</div>
-        </a>
-    }
+                }
+
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent"> @topic.Creator.Username</div>
+            </a>
+        }
 </div>
