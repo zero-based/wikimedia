@@ -11,6 +11,8 @@ namespace Web.Controllers
         private static readonly Dictionary<string, Topic> Cache = new Dictionary<string, Topic>();
         private readonly TopicRepository _topicRepository = new TopicRepository();
 
+        [Route("/")]
+        [Route("topics/")]
         public ActionResult Index()
         {
             var topics = _topicRepository.GetAll();

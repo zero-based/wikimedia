@@ -5,7 +5,7 @@
 }
 
 <h2>Tune your home feed</h2>
-@using (Html.BeginForm("Update", "Interests"))
+@using (Html.BeginForm("UpdateInterests", "User"))
 {
     <div class="row align-items-center">
         <div class="col-md-auto">
@@ -15,15 +15,15 @@
             <button type="submit" class="btn btn-primary m-1">Done tuning</button>
         </div>
     </div>
-    <hr/>
+    <hr />
 
     for (var i = 0; i < Model.Count; i++)
     {
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" asp-for="@Model[i].IsChecked"/>
+            <input type="checkbox" class="custom-control-input" asp-for="@Model[i].IsChecked" />
             <label class="custom-control-label" asp-for="@Model[i].IsChecked">@Model[i].Interest.Name</label>
-            <input type="hidden" asp-for="@Model[i].Interest.Id"/>
-            <input type="hidden" asp-for="@Model[i].Interest.Name"/>
+            <input type="hidden" asp-for="@Model[i].Interest.Id" />
+            <input type="hidden" asp-for="@Model[i].Interest.Name" />
         </div>
     }
 }
