@@ -31,7 +31,7 @@ namespace Web.Controllers
             if (dbUser.Password == Security.ToHash(userAccount.Password))
             {
                 LoggedInUser = dbUser;
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Topics");
             }
             return View("SignIn");
         }
@@ -45,7 +45,7 @@ namespace Web.Controllers
             userAccount.Password = Security.ToHash(userAccount.Password);
             userAccountRepository.Create(userAccount);
             LoggedInUser = userAccount;
-            return RedirectToAction("Index", "Interests");
+            return RedirectToAction("Interests", "User");
         }
 
     }

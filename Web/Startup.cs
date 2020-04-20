@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using Infrastructure;
+﻿using Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
 using Westwind.AspNetCore.Markdown;
 
 namespace Web
@@ -59,7 +59,8 @@ namespace Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller}/{action}",
+                    defaults: new { controller = "Topics", action = "Index" });
             });
         }
     }
