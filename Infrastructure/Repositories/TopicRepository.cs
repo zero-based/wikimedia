@@ -60,6 +60,7 @@ namespace Infrastructure.Repositories
             command.Parameters.Add("Name", name);
             using (var reader = command.ExecuteReader())
             {
+                reader.Read();
                 topic = new Topic
                 {
                     Name = reader["Name"].ToString(),
