@@ -1,4 +1,7 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using System;
+using System.Diagnostics;
+using System.Threading;
+using Oracle.ManagedDataAccess.Client;
 
 namespace Infrastructure
 {
@@ -8,7 +11,7 @@ namespace Infrastructure
         {
             UserID = "zerobased",
             Password = "zerobased",
-            DataSource = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))"+
+            DataSource = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=db)(PORT=1521))" +
                          "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLCDB.localdomain)))"
         };
 
@@ -16,12 +19,31 @@ namespace Infrastructure
 
         public static void Up()
         {
-            Connection.Open();
+            Retry(Connection.Open, 5, "Connected!", "Failed to connect.", "INFRA");
         }
 
         public static void Down()
         {
             Connection.Close();
         }
+
+        private static void Retry(Action action, int interval, string successMsg, string failureMsg, string category)
+        {
+            while (true)
+            {
+                try
+                {
+                    action();
+                    Debug.WriteLine(successMsg, category);
+                    break;
+                }
+                catch (Exception)
+                {
+                    Debug.WriteLine(failureMsg, category);
+                    Thread.Sleep(TimeSpan.FromSeconds(interval));
+                }
+            }
+        }
+
     }
 }
