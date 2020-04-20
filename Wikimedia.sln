@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastru
 EndProject
 Project("{218574D1-FF94-4B95-8577-A6D58C11C315}") = "Schema", "Schema\Schema.oradbproj", "{080568AC-D113-4D89-801F-995FCDFF310F}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{EBBF3D1A-C77E-43A4-BFA2-C2E319FD2498}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{8FC54FA4-B2C6-4B17-8653-D2F69C03E929}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FC54FA4-B2C6-4B17-8653-D2F69C03E929}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FC54FA4-B2C6-4B17-8653-D2F69C03E929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBBF3D1A-C77E-43A4-BFA2-C2E319FD2498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBBF3D1A-C77E-43A4-BFA2-C2E319FD2498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBBF3D1A-C77E-43A4-BFA2-C2E319FD2498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBBF3D1A-C77E-43A4-BFA2-C2E319FD2498}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
