@@ -1,2 +1,3 @@
 ALTER TABLE Badge
-ADD  FOREIGN KEY (PermissionId) REFERENCES Permission(Id);
+ADD CONSTRAINT FK_Badge_Permission
+FOREIGN KEY (PermissionId) REFERENCES Permission(Id);

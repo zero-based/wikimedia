@@ -1,3 +1,5 @@
 ALTER TABLE TopicTag
-ADD  FOREIGN KEY (TopicName) REFERENCES Topic(Name)
-ADD  FOREIGN KEY (InterestId) REFERENCES Interest(Id);
+ADD CONSTRAINT FK_TopicTag_Topic
+FOREIGN KEY (TopicName) REFERENCES Topic(Name)
+ADD CONSTRAINT FK_TopicTag_Interest
+FOREIGN KEY (InterestId) REFERENCES Interest(Id);

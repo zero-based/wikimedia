@@ -1,3 +1,5 @@
 ALTER TABLE UserInterest
-ADD  FOREIGN KEY (Username) REFERENCES UserAccount(Username)
-ADD  FOREIGN KEY (InterestId) REFERENCES Interest(Id);
+ADD CONSTRAINT FK_UserInterest_UserAccount
+FOREIGN KEY (Username) REFERENCES UserAccount(Username)
+ADD CONSTRAINT FK_UserInterest_Interest
+FOREIGN KEY (InterestId) REFERENCES Interest(Id);
