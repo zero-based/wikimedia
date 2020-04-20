@@ -6,5 +6,5 @@ CREATE TABLE EditRequest (
   MergedBy VARCHAR2(50) NOT NULL,
   OpenedBy VARCHAR2(50) NOT NULL,
   MergeCommitId NUMBER(38) NOT NULL,
-  PRIMARY KEY (Num, TopicName)
+  CONSTRAINT PK_EditRequest PRIMARY KEY (Num, TopicName)
 );

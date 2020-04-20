@@ -1,2 +1,3 @@
 ALTER TABLE Topic
-ADD  FOREIGN KEY (CreatorUsername) REFERENCES UserAccount(Username);
+ADD CONSTRAINT FK_Topic_UserAccount
+FOREIGN KEY (CreatorUsername) REFERENCES UserAccount(Username);
