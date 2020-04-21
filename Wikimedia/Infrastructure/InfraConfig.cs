@@ -7,6 +7,8 @@ namespace Infrastructure
 {
     public static class InfraConfig
     {
+        public const string StorageBasePath = "http://storage:8080/";
+
         private static readonly OracleConnectionStringBuilder Builder = new OracleConnectionStringBuilder
         {
             UserID = "zerobased",
