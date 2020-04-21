@@ -9,6 +9,7 @@ services:
       dockerfile: Web/Dockerfile
     depends_on:
       - db
+      - storage
 
   db:
     container_name: oracle
@@ -23,3 +24,13 @@ services:
     volumes:
       - ./Database/ORCL:/ORCL
       - ./Database/Schema:/Schema
+
+  storage:
+    container_name: storage
+    build:
+      context: ./Storage
+    volumes:
+      - ./Storage/repos:/var/www/repos
+    ports:
+      - "8080:8080"       #exposed port for local testing
+    

@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Core.Models;
+﻿using Core.Models;
 using Infrastructure.Repositories;
+using Infrastructure.Storage;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Web.Controllers
 {
@@ -13,22 +14,26 @@ namespace Web.Controllers
 
         [Route("/")]
         [Route("topics/")]
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             var topics = _topicRepository.GetAll();
             foreach (var topic in topics)
+            {
+                topic.Body = await StorageApi.GetTopicBody(topic.Name);
                 Cache[topic.Name] = topic;
+            }
 
             return View(topics);
         }
 
         [HttpGet]
         [Route("topics/{name}")]
-        public ActionResult TopicByName(string name)
+        public async Task<ActionResult> TopicByName(string name)
         {
             if (Cache.ContainsKey(name)) return View(Cache[name]);
 
             var topic = _topicRepository.GetByName(name);
+            topic.Body = await StorageApi.GetTopicBody(topic.Name);
             Cache[topic.Name] = topic;
             return View(topic);
         }
@@ -41,11 +46,12 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("topics/Publish")]
-        public ActionResult Publish(Topic topic)
+        public async Task<ActionResult> Publish(Topic topic)
         {
             topic.Creator = AuthController.LoggedInUser;
             topic.FilePath = "/";
             _topicRepository.Create(topic);
+            await StorageApi.PostTopicBody(topic);
             Cache[topic.Name] = topic;
             return RedirectToAction(topic.Name, "Topics");
         }
