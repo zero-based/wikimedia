@@ -1,0 +1,15 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{218574D1-FF94-4B95-8577-A6D58C11C315}") = "Schema", "Schema.oradbproj", "{080568AC-D113-4D89-801F-995FCDFF310F}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3521C35-1C0B-4439-ADB3-E5DD168218EF}
+	EndGlobalSection
+EndGlobal

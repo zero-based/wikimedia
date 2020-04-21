@@ -3,21 +3,23 @@ version: "3.4"
 services:
   web:
     container_name: web
-    image: ${DOCKER_REGISTRY-}web
+    image: web
     build:
-      context: .
+      context: ./Wikimedia
       dockerfile: Web/Dockerfile
     depends_on:
       - db
 
   db:
     container_name: oracle
-    image: store/oracle/database-enterprise:12.2.0.1-slim
-    volumes:
-      - ./ORCL:/ORCL
-      - ./Schema:/Schema
+    image: oracle
+    build:
+      context: ./Database
     healthcheck:
       start_period: 100s
       interval: 20s
       timeout: 10s
       retries: 10
+    volumes:
+      - ./Database/ORCL:/ORCL
+      - ./Database/Schema:/Schema

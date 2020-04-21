@@ -1,0 +1,11 @@
+.dockerignore
+.gitignore
+.vs
+.vscode
+*/bin
+*/obj
+
+ORCL
+scripts
+*.sln
+*.oradbproj
