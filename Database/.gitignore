@@ -1,0 +1,7 @@
+## Visual Studio
+.vs/
+
+## Oracle Database files
+ORCL/
+[Bb]in/
+[Oo]bj/
