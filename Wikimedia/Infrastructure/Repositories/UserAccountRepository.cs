@@ -3,6 +3,7 @@ using Infrastructure.Interfaces;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Infrastructure.Repositories
 {
@@ -13,16 +14,17 @@ namespace Infrastructure.Repositories
             var command = new OracleCommand
             {
                 Connection = InfraConfig.Connection,
-                CommandText = @"INSERT INTO UserAccount VALUES (:UserName,:FirstName,:LastName,:Password,:JoinDate,:Points,:Email)"
+                CommandText = "SIGN_UP",
+                CommandType = CommandType.StoredProcedure
             };
 
+            command.Parameters.Add("Email", userAccount.Email);
             command.Parameters.Add("Username", userAccount.Username);
             command.Parameters.Add("FirstName", userAccount.FirstName);
             command.Parameters.Add("LastName", userAccount.LastName);
-            command.Parameters.Add("Password", userAccount.Password);
             command.Parameters.Add("JoinDate", DateTime.Now);
             command.Parameters.Add("Points", userAccount.Points);
-            command.Parameters.Add("Email", userAccount.Email);
+            command.Parameters.Add("Password", userAccount.Password);
 
             command.ExecuteNonQuery();
 
@@ -30,29 +32,64 @@ namespace Infrastructure.Repositories
 
         public UserAccount Get(string userAccountEmail)
         {
+            //var userAccount = new UserAccount();
+            //var command = new OracleCommand
+            //{
+            //    Connection = InfraConfig.Connection,
+            //    CommandText = "SELECT * FROM UserAccount WHERE Email =: Email"
+            //};
+
+            //command.Parameters.Add("Email", userAccountEmail);
+            //using (var reader = command.ExecuteReader())
+            //{
+            //    while (reader.Read())
+            //    {
+            //        userAccount = new UserAccount
+            //        {
+            //            JoinDate = DateTime.Parse(reader["JoinDate"].ToString()),
+            //            Points = int.Parse(reader["Points"].ToString()),
+            //            FirstName = reader["FirstName"].ToString(),
+            //            Password = reader["Password"].ToString(),
+            //            LastName = reader["LastName"].ToString(),
+            //            Username = reader["Username"].ToString(),
+            //            Email = reader["Email"].ToString()
+            //        };
+            //    }
+            //}
+
+            //return userAccount;
+
             var userAccount = new UserAccount();
             var command = new OracleCommand
             {
                 Connection = InfraConfig.Connection,
-                CommandText = "SELECT * FROM UserAccount WHERE Email =: Email"
+                CommandText = "SIGN_IN",
+                CommandType = CommandType.StoredProcedure
             };
+            command.Parameters.Add("User_Email", userAccountEmail);
+            command.Parameters.Add("User_Username", OracleDbType.Varchar2, ParameterDirection.Output);
+            command.Parameters.Add("User_FirstName", OracleDbType.Varchar2, ParameterDirection.Output);
+            command.Parameters.Add("User_LastName", OracleDbType.Varchar2, ParameterDirection.Output);
+            command.Parameters.Add("User_JoinDate", OracleDbType.Date, ParameterDirection.Output);
+            command.Parameters.Add("User_Points", OracleDbType.Int64, ParameterDirection.Output);
+            command.Parameters.Add("User_Password", OracleDbType.Varchar2, ParameterDirection.Output);
 
-            command.Parameters.Add("Email", userAccountEmail);
-            using (var reader = command.ExecuteReader())
+            command.ExecuteNonQuery();
+            try
             {
-                while (reader.Read())
+                userAccount = new UserAccount
                 {
-                    userAccount = new UserAccount
-                    {
-                        JoinDate = DateTime.Parse(reader["JoinDate"].ToString()),
-                        Points = int.Parse(reader["Points"].ToString()),
-                        FirstName = reader["FirstName"].ToString(),
-                        Password = reader["Password"].ToString(),
-                        LastName = reader["LastName"].ToString(),
-                        Username = reader["Username"].ToString(),
-                        Email = reader["Email"].ToString()
-                    };
-                }
+                    Username = command.Parameters["User_Username"].Value.ToString(),
+                    FirstName = command.Parameters["User_FirstName"].Value.ToString(),
+                    LastName = command.Parameters["User_LastName"].Value.ToString(),
+                    JoinDate = DateTime.Parse(command.Parameters["User_JoinDate"].Value.ToString()),
+                    Points = int.Parse(command.Parameters["User_Points"].Value.ToString()),
+                    Password = command.Parameters["User_Password"].Value.ToString(),
+                };
+            }
+            catch
+            {
+                userAccount = null;
             }
 
             return userAccount;

@@ -7,8 +7,8 @@ namespace Web.Util
     {
         public static string ToHash(string password)
         {
-            SHA512 shaM = new SHA512Managed();
-            return shaM.ComputeHash(Encoding.Unicode.GetBytes(password)).ToString();
+            SHA256 shaM = new SHA256Managed();
+            return  Encoding.Default.GetString(shaM.ComputeHash(Encoding.Unicode.GetBytes(password)));
         }
     }
 }

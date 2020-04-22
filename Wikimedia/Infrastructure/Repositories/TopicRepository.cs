@@ -3,6 +3,7 @@ using Infrastructure.Interfaces;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Infrastructure.Repositories
 {
@@ -34,14 +35,16 @@ namespace Infrastructure.Repositories
             var command = new OracleCommand
             {
                 Connection = InfraConfig.Connection,
-                CommandText = "SELECT Name FROM Topic"
+                CommandText = "GET_ALL_TOPICS",
+                CommandType = CommandType.StoredProcedure
             };
 
+            command.Parameters.Add("Name", OracleDbType.RefCursor, ParameterDirection.Output);
             using (var reader = command.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    topics.Add(GetByName(reader["Name"].ToString()));
+                    topics.Add(GetByName(reader[0].ToString()));
                 }
             }
 
