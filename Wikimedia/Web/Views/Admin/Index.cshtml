@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Core.Models.UserAccount>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Admin Panel</h2>
+
+<ul class="list-group">
+    @foreach (var user in Model.ToList())
+    {
+        <li class="list-group-item">
+            <h5>@user.Username</h5>
+            <h6>@user.Email</h6>
+        </li>
+    }
+</ul>
+
+
+

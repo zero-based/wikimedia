@@ -4,6 +4,7 @@ using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace Infrastructure.Repositories
 {
@@ -97,7 +98,21 @@ namespace Infrastructure.Repositories
 
         public IEnumerable<UserAccount> GetAll()
         {
-            throw new System.NotImplementedException();
+            var adapter = new OracleDataAdapter("SELECT * FROM UserAccount", InfraConfig.Connection);
+            var ds = new DataSet();
+            adapter.Fill(ds);
+
+            return from DataRow row in ds.Tables[0].Rows
+                   select new UserAccount
+                   {
+                       Email = row["Email"].ToString(),
+                       Username = row["Username"].ToString(),
+                       FirstName = row["FirstName"].ToString(),
+                       LastName = row["LastName"].ToString(),
+                       JoinDate = DateTime.Parse(row["JoinDate"].ToString()),
+                       Points = int.Parse(row["Points"].ToString()),
+                       Password = row["Password"].ToString(),
+                   };
         }
 
         public void Update(UserAccount userAccount)
@@ -107,7 +122,7 @@ namespace Infrastructure.Repositories
                 Connection = InfraConfig.Connection,
                 CommandText = @"Update UserAccount SET FirstName =: FirstName, LastName =: LastName, Email =: Email, Password =: Password WHERE Username =: Username"
             };
-            
+
             command.Parameters.Add("FirstName", userAccount.FirstName);
             command.Parameters.Add("LastName", userAccount.LastName);
             command.Parameters.Add("Email", userAccount.Email);
