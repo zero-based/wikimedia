@@ -19,7 +19,7 @@ namespace Web.Controllers
             var topics = _topicRepository.GetAll();
             foreach (var topic in topics)
             {
-                topic.Body = await StorageApi.GetTopicBody(topic.Name);
+                topic.Body = await StorageApi.GetTopicBody(topic.FilePath);
                 Cache[topic.Name] = topic;
             }
 
@@ -33,7 +33,7 @@ namespace Web.Controllers
             if (Cache.ContainsKey(name)) return View(Cache[name]);
 
             var topic = _topicRepository.GetByName(name);
-            topic.Body = await StorageApi.GetTopicBody(topic.Name);
+            topic.Body = await StorageApi.GetTopicBody(topic.FilePath);
             Cache[topic.Name] = topic;
             return View(topic);
         }

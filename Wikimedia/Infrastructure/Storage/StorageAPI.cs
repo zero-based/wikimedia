@@ -33,7 +33,7 @@ namespace Infrastructure.Storage
 
         public static async Task PostTopicBody(Topic topic)
         {
-            var route = InfraConfig.StorageBasePath + TopicsEndpoint + topic.Name;
+            var route = InfraConfig.StorageBasePath + TopicsEndpoint + topic.FilePath;
             var topicJson = new
             {
                 topic = new

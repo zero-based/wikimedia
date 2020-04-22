@@ -203,7 +203,7 @@ INSERT INTO
 VALUES
     (
         'Black Mirror',
-        'Z:/BlackMirror',
+        'Black-Mirror',
         'MichaelSafwat'
     );
 
@@ -212,14 +212,14 @@ INSERT INTO
 VALUES
     (
         'Begin coding with c++ or c#?',
-        'Z:/Programming',
+        'Begin-coding-with-c-or-java',
         'YoussefRaafat'
     );
 
 INSERT INTO
     Topic
 VALUES
-    ('Interstellar', 'Z:/Movies', 'MichelineMedhat');
+    ('Interstellar', 'Interstellar', 'MichelineMedhat');
 
 INSERT INTO
     TopicTag
