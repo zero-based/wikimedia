@@ -55,5 +55,32 @@ namespace Web.Controllers
             Cache[topic.Name] = topic;
             return RedirectToAction(topic.Name, "Topics");
         }
+
+        [Route("topics/UpVote")]
+        public IActionResult UpVote(string topicName)
+        {
+            Cache[topicName].UpVotes++;
+            _topicRepository.AddVote(new Vote
+            {
+                Type = "Up",
+                Topic = Cache[topicName],
+                Voter = AuthController.LoggedInUser
+            });
+            return RedirectToAction(topicName, "Topics");
+        }
+
+        [Route("topics/DownVote")]
+        public IActionResult DownVote(string topicName)
+        {
+            Cache[topicName].DownVotes++;
+            _topicRepository.AddVote(new Vote
+            {
+                Type = "Down",
+                Topic = Cache[topicName],
+                Voter = AuthController.LoggedInUser
+            });
+            return RedirectToAction(topicName, "Topics");
+        }
+
     }
 }
