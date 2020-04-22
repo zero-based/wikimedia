@@ -32,4 +32,9 @@ COMMIT;
 @"/Schema/Tables/Relational Tables/USERINTEREST_FK"
 @"/Schema/Tables/Relational Tables/VOTE_FK"
 
+-- Procedures
+@"/Schema/Procedures/SIGN_IN"
+@"/Schema/Procedures/GET_ALL_TOPICS"
+@"/Schema/Procedures/SIGN_UP"
+
 COMMIT;
