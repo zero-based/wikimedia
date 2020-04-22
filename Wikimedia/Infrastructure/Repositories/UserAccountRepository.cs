@@ -199,5 +199,23 @@ namespace Infrastructure.Repositories
                 InsertUserInterest(interest.Id, username);
             }
         }
+
+        public void AddPoints(string username)
+        {
+            var adapter = new OracleDataAdapter("SELECT * FROM UserAccount", InfraConfig.Connection);
+            var ds = new DataSet();
+            adapter.Fill(ds);
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                if (row["Username"].ToString() == username)
+                {
+                    row["Points"] = Convert.ToInt64(row["Points"].ToString()) + 100;
+                }
+            }
+
+            var builder = new OracleCommandBuilder(adapter);
+            adapter.Update(ds);
+        }
     }
 }

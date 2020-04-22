@@ -10,5 +10,13 @@ namespace Web.Controllers
             var repo = new UserAccountRepository();
             return View(repo.GetAll());
         }
+
+        [Route("admin/points/{name}")]
+        public IActionResult Points(string name)
+        {
+            var repo = new UserAccountRepository();
+            repo.AddPoints(name);
+            return Content("UPDATED");
+        }
     }
 }
