@@ -24,9 +24,12 @@ services:
     volumes:
       - ./Database/ORCL:/ORCL
       - ./Database/Schema:/Schema
+    ports:
+      - "1521:1521"       #exposed port for local testing
 
   storage:
     container_name: storage
+    image: storage
     build:
       context: ./Storage
     volumes:
