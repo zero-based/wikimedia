@@ -108,6 +108,21 @@ namespace Infrastructure.Repositories
 
         }
 
+        public void AddVote(Vote vote)
+        {
+            var command = new OracleCommand
+            {
+                Connection = InfraConfig.Connection,
+                CommandText = "INSERT INTO Vote VALUES (vote_seq.NEXTVAL, :type, :topicName, :voterName)"
+            };
+
+            command.Parameters.Add("type", vote.Type);
+            command.Parameters.Add("topicName", vote.Topic.Name);
+            command.Parameters.Add("voterName", vote.Voter.Username);
+
+            command.ExecuteNonQuery();
+        }
+
         public void Update(string id)
         {
             throw new System.NotImplementedException();

@@ -15,8 +15,14 @@
                href=@Url.Action("Index", "Commits")>
                 <i class="fas fa-history"></i>
             </a>
-            <i class="fas fa-arrow-circle-up"></i> @Model.UpVotes
-            <i class="fas fa-arrow-circle-down"></i> @Model.DownVotes
+            <a class="text-dark text-decoration-none"
+               href=@Url.Action("UpVote", "Topics", new { topicName = Model.Name })>
+                <i class="fas fa-arrow-circle-up"></i> @Model.UpVotes
+            </a>
+            <a class="text-dark text-decoration-none"
+               href=@Url.Action("DownVote", "Topics", new { topicName = Model.Name })>
+                <i class="fas fa-arrow-circle-down"></i> @Model.DownVotes
+            </a>
         </p>
         <hr />
         <div>@Markdown.ParseHtmlString(Model.Body)</div>
