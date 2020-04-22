@@ -1,5 +1,3 @@
-# Black Mirror
-
 An anthology series exploring a twisted, high-tech multiverse where humanity's greatest innovations and darkest instincts collide.
 
 The show looks inwards, at the darker aspects of humanity and society. This is done through the theme of technology, hence the second meaning. The black mirror is the screen that rules our lives. Taking contemporary phenomena (ranging from the wild popularity of talent shows on TV to the impact of social media and smartphones on our lives) as a starting point and speculate how such phenomena could/would evolve in the future. Each episode tells a different story with different protagonists and focuses on a different theme.

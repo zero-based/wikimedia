@@ -1,5 +1,3 @@
-# C++ VS. C#
-
 ## What is C++?
 
 C++ is a computer programming language that contains the feature of C programming language as well as Simula67( a first object Oriented language). C++ introduced the concept of Class and Objects.
