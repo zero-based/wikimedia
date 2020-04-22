@@ -64,7 +64,7 @@ namespace Infrastructure.Repositories
                 topic = new Topic
                 {
                     Name = reader["Name"].ToString(),
-                    FilePath = reader["LastName"].ToString(),
+                    FilePath = reader["FilePath"].ToString(),
                     Creator = new UserAccount
                     {
                         JoinDate = DateTime.Parse(reader["JoinDate"].ToString()),
