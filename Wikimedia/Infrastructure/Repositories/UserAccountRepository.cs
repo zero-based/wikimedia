@@ -33,67 +33,43 @@ namespace Infrastructure.Repositories
 
         public UserAccount Get(string userAccountEmail)
         {
-            //var userAccount = new UserAccount();
-            //var command = new OracleCommand
-            //{
-            //    Connection = InfraConfig.Connection,
-            //    CommandText = "SELECT * FROM UserAccount WHERE Email =: Email"
-            //};
-
-            //command.Parameters.Add("Email", userAccountEmail);
-            //using (var reader = command.ExecuteReader())
-            //{
-            //    while (reader.Read())
-            //    {
-            //        userAccount = new UserAccount
-            //        {
-            //            JoinDate = DateTime.Parse(reader["JoinDate"].ToString()),
-            //            Points = int.Parse(reader["Points"].ToString()),
-            //            FirstName = reader["FirstName"].ToString(),
-            //            Password = reader["Password"].ToString(),
-            //            LastName = reader["LastName"].ToString(),
-            //            Username = reader["Username"].ToString(),
-            //            Email = reader["Email"].ToString()
-            //        };
-            //    }
-            //}
-
-            //return userAccount;
-
-            var userAccount = new UserAccount();
             var command = new OracleCommand
             {
                 Connection = InfraConfig.Connection,
                 CommandText = "SIGN_IN",
-                CommandType = CommandType.StoredProcedure
+                CommandType = CommandType.StoredProcedure,
+                BindByName = true
             };
             command.Parameters.Add("User_Email", userAccountEmail);
-            command.Parameters.Add("User_Username", OracleDbType.Varchar2, ParameterDirection.Output);
-            command.Parameters.Add("User_FirstName", OracleDbType.Varchar2, ParameterDirection.Output);
-            command.Parameters.Add("User_LastName", OracleDbType.Varchar2, ParameterDirection.Output);
-            command.Parameters.Add("User_JoinDate", OracleDbType.Date, ParameterDirection.Output);
-            command.Parameters.Add("User_Points", OracleDbType.Int64, ParameterDirection.Output);
-            command.Parameters.Add("User_Password", OracleDbType.Varchar2, ParameterDirection.Output);
 
-            command.ExecuteNonQuery();
+            command.Parameters.Add("User_Password", OracleDbType.Varchar2, 128);
+            command.Parameters["User_Password"].Direction = ParameterDirection.Output;
+
+            command.Parameters.Add("User_Username", OracleDbType.Varchar2, 50);
+            command.Parameters["User_Username"].Direction = ParameterDirection.Output;
+
+            command.Parameters.Add("User_FirstName", OracleDbType.Varchar2, 50);
+            command.Parameters["User_FirstName"].Direction = ParameterDirection.Output;
+
+            command.Parameters.Add("User_LastName", OracleDbType.Varchar2, 50);
+            command.Parameters["User_LastName"].Direction = ParameterDirection.Output;
+
             try
             {
-                userAccount = new UserAccount
+                command.ExecuteNonQuery();
+                return new UserAccount
                 {
+                    Email = userAccountEmail,
                     Username = command.Parameters["User_Username"].Value.ToString(),
-                    FirstName = command.Parameters["User_FirstName"].Value.ToString(),
-                    LastName = command.Parameters["User_LastName"].Value.ToString(),
-                    JoinDate = DateTime.Parse(command.Parameters["User_JoinDate"].Value.ToString()),
-                    Points = int.Parse(command.Parameters["User_Points"].Value.ToString()),
                     Password = command.Parameters["User_Password"].Value.ToString(),
+                    FirstName = command.Parameters["User_FirstName"].Value.ToString(),
+                    LastName = command.Parameters["User_LastName"].Value.ToString()
                 };
             }
             catch
             {
-                userAccount = null;
+                return null;
             }
-
-            return userAccount;
         }
 
         public IEnumerable<UserAccount> GetAll()
